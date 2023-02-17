@@ -2,7 +2,7 @@
 
 [Celer IM](https://im-docs.celer.network/) app guardian is run by the dApp community to ensure their application security.
 
-The app guardian monitors the [message `Executed` events](https://github.com/celer-network/sgn-v2-contracts/blob/main/contracts/message/messagebus/MessageBusReceiver.sol#L27-L34) emitted from the `MessageBus` contracts on the destination chains, and uses the `srcChainId` and `srcTxHash` fields in the event to look for the matched [`Message` events](https://github.com/celer-network/sgn-v2-contracts/blob/main/contracts/message/messagebus/MessageBusSender.sol#L15) from the `MessageBus` contracts on the source chains. If it fails to find a matched event on the source chain, it will try to [pause the message receiver (dApp) contracts](https://github.com/celer-network/im-guardian/blob/main/guardian/message.go#L35-L39) or execute any dApp-specific logics if added.
+The app guardian monitors the [message `Executed` events](https://github.com/celer-network/sgn-v2-contracts/blob/main/contracts/message/messagebus/MessageBusReceiver.sol#L28-L35) emitted from the `MessageBus` contracts on the destination chains, and uses the `srcChainId` and `srcTxHash` fields in the event to look for the matched [`Message` events](https://github.com/celer-network/sgn-v2-contracts/blob/main/contracts/message/messagebus/MessageBusSender.sol#L15) from the `MessageBus` contracts on the source chains. If it fails to find a matched event on the source chain, it will try to [pause the message receiver (dApp) contracts](https://github.com/celer-network/im-guardian/blob/main/guardian/message.go#L35-L39) or execute any dApp-specific logic if added.
 
 To run the guardian, go to `cmd/main` and do `go run main.go start --home <path>`. 
 
